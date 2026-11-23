@@ -35,13 +35,13 @@ Process creation is the backbone of the timeline, since almost every action star
 
 ## From kernel to user mode: why the heavy work happens up top
 
-The driver collects raw events and passes them to the user-mode agent over a communication channel rather than deciding guilt in the kernel. The agent enriches each event, correlates it with the ones around it, applies detection logic, and forwards the result to a console or a SIEM. Kernel as eyes, user mode as the brain.
+The driver collects raw events and passes them to the user-mode agent over a communication channel rather than deciding guilt in the kernel. The agent enriches each event, correlates it with the ones around it, applies detection logic, and forwards the result to a console or a SIEM. The kernel side collects, the user-mode side decides.
 
 ## Behaviour versus signature
 
 Traditional antivirus matches a file against a database of known-bad hashes and byte patterns. It is fast and precise on known samples and blind to new or fileless ones, and repacking a file defeats it.
 
-An EDR watches what a process does. "A process opened a handle to lsass and read its memory" is suspicious whatever the file is called, so the technique stays detectable even when the binary changes. This is the same idea behind MITRE ATT&CK: describe and detect the technique, not the file.
+An EDR watches what a process does. "A process opened a handle to lsass and read its memory" is suspicious whatever the file is called, so the technique stays detectable even when the binary changes. This is the same idea behind MITRE ATT&CK: describe and detect the technique rather than the file.
 
 ## Mapping an attack to the telemetry it leaves
 
@@ -57,7 +57,7 @@ The reason this was worth my time, written as a small table from the attacker's 
 
 ## What I took from this
 
-Every offensive technique I use leaves a specific trace, and the trace is usually earlier and louder than I would like. Reading an EDR from the inside made my own attacks legible to me: I can now point at the exact event a defender would alert on, which is as useful for testing detections as it is for evading them.
+Every offensive technique I use leaves a specific trace, and the trace is usually earlier and louder than I would like. Reading an EDR from the inside made my own attacks legible to me: I can now point at the exact event a defender would alert on, which is as useful for writing detections as it is for testing them.
 
 ---
 
