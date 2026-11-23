@@ -59,6 +59,13 @@ The reason this was worth my time, written as a small table from the attacker's 
 
 Every offensive technique I use leaves a specific trace, and the trace is usually earlier and louder than I would like. Reading an EDR from the inside made my own attacks legible to me: I can now point at the exact event a defender would alert on, which is as useful for writing detections as it is for testing them.
 
+## References
+
+- OpenEDR source: [github.com/ComodoSecurity/openedr](https://github.com/ComodoSecurity/openedr)
+- Microsoft documentation for each callback: [PsSetCreateProcessNotifyRoutineEx](https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntddk/nf-ntddk-pssetcreateprocessnotifyroutineex), [PsSetLoadImageNotifyRoutine](https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntddk/nf-ntddk-pssetloadimagenotifyroutine), [PsSetCreateThreadNotifyRoutine](https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntddk/nf-ntddk-pssetcreatethreadnotifyroutine), [CmRegisterCallbackEx](https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/wdm/nf-wdm-cmregistercallbackex), [ObRegisterCallbacks](https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/wdm/nf-wdm-obregistercallbacks)
+- MITRE ATT&CK: [attack.mitre.org](https://attack.mitre.org/)
+- The runnable detection lab these notes fed into: [github.com/coldkernel/web-rce-detection-lab](https://github.com/coldkernel/web-rce-detection-lab)
+
 ---
 
 Scope: this is a source review and architecture notes. It documents my understanding of a public open-source project and contains no proprietary or certification exam material. Windows API names reference Microsoft's public documentation.
